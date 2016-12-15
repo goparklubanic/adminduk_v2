@@ -1,0 +1,42 @@
+/* IDs */
+#ph {text-align:center;}
+#ph h2,h3,h4{padding:0; margin:4px;}
+#maincon {display: block; min-height: 300px;}
+#adminduk{display: none;}
+#dpil table tr:nth-child(odd) {background:#BBB;}
+#loginWrapper{
+	position:absolute; width:300px; height:300px; top:50%; left:50%;
+	margin-left: -150px; margin-top:-150px;
+	border: 1px solid #154E0E; padding: 15px; border-radius: 15px;
+	box-shadow: 0px 0px 15px #041D00;
+}
+#knock {text-align:center; margin:5px 0 15px 0; }
+#knock img{ width: 50px; border-radius:20px;}
+
+/* CLASSes */
+.footer{position:absolute; bottom: 10px; width: 100%; text-align: center; border:0px solid navy;}
+
+.ciut{display:none;}
+/* TAGs */
+li {background:#C7E5FF;} 
+li.active {background:#428BCA;}
+li.active a { color: #EEE;}
+li.active a:hover { background:#428BCA; }
+
+@media screen and (max-width: 720px){
+  #ph h2 {font-size: 12pt;}
+  #ph h3 {font-size: 12pt;}
+  #ph h4 {font-size: 11pt; font-weight: bold;}
+  #adminduk{display: block;}
+  #dpil table tr th {display:block; padding:0; font-size:10pt;}
+  #dpil table tr td {display:block; padding:0; font-size:10pt;}
+  
+  #dpil table tr th.ngumpet{display:none;} 
+  #dpil table tr td.ngumpet{display:none;}
+  
+  #kk thead tr th.umpet {display:none;}
+  #kk tbody tr td.umpet {display:none;}
+  #kk tbody tr:nth-child(odd){background: #E0E0E0;}
+  .ciut{display:block;}
+  .slempit {display:none;}
+}
