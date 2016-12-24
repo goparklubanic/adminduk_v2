@@ -1,5 +1,5 @@
 <?php
-
+/*
 $dbhost="localhost";
 $dbname="banjar01_adminduk";
 $dbuser="banjar01_zinga";
@@ -16,7 +16,7 @@ catch(PDOException $pe)
 {
 die('Maaf, gangguan koneksi: ' .$pe->getMessage());
 }
-/*
+*/
 $dbhost="localhost";
 $dbname="singamerta";
 $dbuser="zinga";
@@ -34,5 +34,5 @@ catch(PDOException $pe)
 {
 die('Maaf, gangguan koneksi: ' .$pe->getMessage());
 }
-*/ 
+ 
 ?>

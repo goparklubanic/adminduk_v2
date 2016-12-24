@@ -1,27 +1,10 @@
-<!--
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-
-<head>
-	<title>PINDAH</title>
-	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-	<meta name="generator" content="Geany 1.24.1" />
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="../lib/bootstrap.min.css">
-	<script src="../lib/jquery.min.js"></script>
-	<script src="../lib/bootstrap.min.js"></script>
-</head>
-
-<body>
-<div class="container">
--->	
- 		
 			<form role="form" action="surat-sve.php?sk=wft" method="post" class="form-horizontal">
+				<input type="hidden" name="no_klas" value="474.3">
 				<div class="form-group">
-					<label class="col-sm-3" for="nok">Nomor Surat Keterangan</label>
+					<label class="col-sm-3" for="nok">Nomor Urut Agenda</label>
 					<div class="col-sm-9">
-					<input type="text" class="form-control" id="nok" name="nok">
+					474.3/<input type="text" class="noa" id="nos" name="nos" readonly value="<?php echo sprintf("%04d",$noa); ?>"/>
+					<span >/<?php echo kopkelur ."/". date('Y'); ?></span>
 					</div>
 				</div>
 				
@@ -128,9 +111,9 @@
 		<!-- data Pelapor dan Saksi -->
 		<h3>Data Pelapor dan Saksi</h3>
 		<div class="form-group">
-			<label class="col-sm-3" for="nikpelapor">NIK Pelapor</label>
+			<label class="col-sm-3" for="nik">NIK Pelapor</label>
 			<div class="col-sm-9">
-			<input type="text" class="form-control" id="nikpelapor" name="nikpelapor">
+			<input type="text" class="form-control" id="nikpelapor" name="nik">
 			</div>
 		</div>
 		<div class="form-group">
@@ -145,6 +128,7 @@
 			<input type="text" class="form-control" id="niksaksi2" name="niksaksi2">
 			</div>
 		</div>
+		<?php include "pemaraf.php"; ?>
 		<button type="submit" class="btn btn-default">Submit</button>
 	</form>
 		<!-- data Pelapor dan Saksi -->

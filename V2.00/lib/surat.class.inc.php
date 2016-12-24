@@ -1,23 +1,4 @@
 <?php
-/* sk_kurma1 	: 	nomor,tanggal,nik_anak,nik_kklg,sekolah
-/* sk_kurma2 	: 	nomor,tanggal,nik
- * sk_lahir  	: 	nomor,tanggal,kk_nomor,bayi_nama, bayi_kelamin, 
- * 					bayi_lahir_tempat, bayi_lahir_kota, bayi_lahir_tanggal
- * 					bayi_lahir_pukul, bayi_lahir_jenis, bayi_anak_ke,
- * 					bayi_penolong, bayi_berat, bayi_panjang, ibu_nik,
- * 					ibu_tanggal_nikah, ayah_nik, pelapor_nik, saksi1_nik,
- * 					saksi2_nik
- * sk_nikah	  	: 	nomor, tanggal, nik
- * sk_pengantar :	nomor, tanggal, nik, keperluan, mulai, ketlain
- * sk_pindah 	:	nomor, tanggal, kk_nomor, nik_pemohon, pindah_alasan
- * 					pindah_tujuan, pindah_jenis, status_kk_pindah
- * 					status_kk_mnetap, nik_keluarga_pindah
- * sk_usaha		:	nomor, tanggal, nik, jenis, barang, mulai
- * sk_wafat		:	nomor, tanggal, kk_nomor, jnz_nik, jnz_anakke, jnz_tgl
- * 					jnz_jam, jnz_sebab, jnz_penerang, ibu_nik, ayah_nik
- * 					pelapor_nik, saksi1_nik, saksi2_nik
-*/ 
-
 class suratdesa
 {
 		function koneksi(){include "koneksi.inc.php"; return $conn; }
@@ -29,29 +10,29 @@ class suratdesa
 	
 		function kurma1Add($data){
 			$qry = $this->setQuery("INSERT INTO sk_kurma1
-					SET	nomor = ? , tanggal = ? , nik_anak = ? , 
-						nik_kklg = ? , sekolah = ?  ");
+					SET	no_klas = ? , nomor = ? , tanggal = ? , 
+					nik_anak = ? , nik_kklg = ? , sekolah = ?  ");
 			$qry->execute($data);
 			$qry->closeCursor();
 		}
 		
 		function kurma2Add($data){
 			$qry = $this->setQuery("INSERT INTO sk_kurma2
-					SET	nomor = ? , tanggal = ? , nik = ?");
+					SET	no_klas = ?, nomor = ? ,tanggal = ? ,nik = ?");
 			$qry->execute($data);
 			$qry->closeCursor();
 		}
 		
 		function nikahAdd($data){
 			$qry = $this->setQuery("INSERT INTO sk_nikah
-					SET	nomor = ? , tanggal = ? , nik = ?");
+					SET	no_klas = ? , nomor = ? , tanggal = ? , nik = ?");
 			$qry->execute($data);
 			$qry->closeCursor();
 		}
 		
 		function pengantarAdd($data){
 			$qry = $this->setQuery("INSERT INTO sk_pengantar
-					SET	nomor = ? ,  tanggal = ? ,  nik = ? ,  
+					SET	no_klas = ? , nomor = ? ,  tanggal = ? ,  nik = ? ,  
 						keperluan = ? ,  mulai = ? ,  ketlain = ?");
 			$qry->execute($data);
 			$qry->closeCursor();
@@ -60,7 +41,7 @@ class suratdesa
 		function usahaAdd($data){
 			
 			$qry = $this->setQuery("INSERT INTO sk_usaha
-					SET	nomor = ? ,  tanggal = ? ,  nik = ? ,  jenis = ? ,  
+					SET	no_klas= ? , nomor = ? ,  tanggal = ? ,  nik = ? ,  jenis = ? ,  
 						barang = ? ,  mulai = ?  ");
 			$qry->execute($data);
 			$qry->closeCursor();
@@ -68,7 +49,7 @@ class suratdesa
 		
 		function lahirAdd($data){ 
 			$qry = $this->setQuery("INSERT INTO sk_lahir
-					SET	nomor = ? , tanggal = ? , kk_nomor = ? , 
+					SET	no_klas= ? , nomor = ? , tanggal = ? , kk_nomor = ? , 
 						bayi_nama = ? ,  bayi_kelamin = ? ,  
 						bayi_lahir_tempat = ? ,  bayi_lahir_kota = ? ,  
 						bayi_lahir_tanggal  = ? , bayi_lahir_pukul = ? ,  
@@ -84,7 +65,7 @@ class suratdesa
 		
 		function pindahAdd($data){
 			$qry = $this->setQuery("INSERT INTO sk_pindah
-					SET	nomor = ? ,  tanggal = ? ,  kk_nomor = ? ,  
+					SET	no_klas = ? , nomor = ? ,  tanggal = ? ,  kk_nomor = ? ,  
 						nik_pemohon = ? ,  pindah_alasan = ? , pindah_tujuan = ? ,  
 						pindah_jenis = ? ,  status_kk_pindah = ? , 
 						status_kk_mnetap = ? ,  nik_keluarga_pindah = ? ");
@@ -95,7 +76,7 @@ class suratdesa
 		function wafatAdd($data){
 			
 			$qry = $this->setQuery("INSERT INTO sk_wafat
-					SET	nomor = ? ,  tanggal = ? ,  kk_nomor = ? ,  jnz_nik = ? ,  
+					SET	no_klas = ? , nomor = ? ,  tanggal = ? ,  kk_nomor = ? ,  jnz_nik = ? ,  
 						jnz_anakke = ? ,  jnz_tgl = ? , jnz_jam = ? ,  
 						jnz_sebab = ? ,  jnz_penerang = ? ,  jnz_tempat= ?, ibu_nik = ? ,  
 						ayah_nik = ? , pelapor_nik = ? ,  saksi1_nik = ? , 
@@ -130,6 +111,40 @@ class suratdesa
 				case '7' : $nh = 'Sabtu'; break;
 			}
 			return ("$nh, $d / $m /$y");
+		}
+		
+		function saveAgenda($klas,$tgl,$nik,$jabatan,$pemaraf)
+		{
+			$sql = "INSERT INTO agenda 
+					SET klasifikasi = ? , tanggal = ? , nik_pemohon = ?, jabt_pemaraf = ? , nama_pemaraf = ?";
+			$qry = $this->setQuery($sql);
+			$qry->execute(array($klas,$tgl,$nik,$jabatan,$pemaraf));
+			$qry=null;
+		}
+		
+		function nomorBaru()
+		{
+			$sql = "SELECT MAX(nomor) noa FROM agenda";
+			$qry = $this->setQuery($sql);
+			$qry->execute();
+			$rs=$qry->fetch();
+			if($rs['noa']==NULL)
+			{
+				return '0001';
+			}else{
+				return $rs['noa']+1;
+			}
+		}
+		
+		function pemaraf($nok)
+		{
+			
+			$qry = $this->setQuery("SELECT jabt_pemaraf,nama_pemaraf
+					FROM agenda WHERE nomor = '$nok'");
+			$qry->execute();
+			$qry->setFetchMode(PDO::FETCH_NUM);
+			$rs=$qry->fetch();
+			return $rs;
 		}
 }
 ?>

@@ -1,17 +1,19 @@
 <?php
 session_start();
-error_reporting(0);
+//error_reporting(0);
 if(!isset($_SESSION['user'])){header("Location:./login/");} 
 	date_default_timezone_set('Asia/Jakarta');
 	require_once 'config.php'; 
 	require_once './lib/penduduk.class.inc.php';
 	require_once './lib/statistik.class.inc.php';
 	require_once './lib/forms.inc.php';
+	require_once("./lib/surat.class.inc.php");
 	
 	$frm = new formulir();
 	$pdd = new penduduk();
 	$stt = new statistik();
-	
+	$dok = new suratdesa();
+	$noa = $dok->nomorBaru();
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +35,7 @@ if(!isset($_SESSION['user'])){header("Location:./login/");}
 	  <!-- header -->
 	  <div class="page-header" id="ph">
 		<h4>PEMERINTAH KABUPATEN BANJARNEGARA</h2>
-		<h3><?php echo KECAMAMATAN." ".strtoupper(kecamatan); ?></h3>
+		<h3><?php echo "KECAMAMATAN ".strtoupper(kecamatan); ?></h3>
 	    <h2><?php echo strtoupper(dskl)." ".strtoupper(desa); ?></h3>
 	    <!--h4>ADMINISRASI KEPENDUDUKAN</h4-->
 	  </div>

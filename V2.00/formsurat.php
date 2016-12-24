@@ -17,6 +17,6 @@
 	</div>
 	
 	<div class='col-sm-2'>
-		<?php include "menusurat.php"; ?>
+		<?php #include "menusurat.php"; ?>
 	</div>
 </div>

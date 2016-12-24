@@ -9,4 +9,3 @@
   <li><a href="./?menu=surat&sk=siswakm">SISWA KURANG MAMPU</a></li>
   <li><a href="./?menu=surat&sk=wargakm">WARGA KURANG MAPU</a></li>
 </ul>
-

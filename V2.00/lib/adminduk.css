@@ -15,7 +15,7 @@
 
 /* CLASSes */
 .footer{position:absolute; bottom: 10px; width: 100%; text-align: center; border:0px solid navy;}
-
+.noa {text-align:center; width:50px; border:none;}
 .ciut{display:none;}
 /* TAGs */
 li {background:#C7E5FF;} 

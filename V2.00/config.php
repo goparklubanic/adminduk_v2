@@ -3,9 +3,9 @@ define ("kecamatan","Banjarnegara");
 define ("dskl","Kelurahan");
 define ("desa","Semampir");
 define ("kabupaten","Banjarnegara");
-define ("alamat","Jl. Raya Pucang, Banjarnegara 53418");
-define ("telpon","+62 86-xxxxxx");
-define ("dewil","53400");
+define ("alamat","Jl. Raya Semampir KM. 3 Banjarnegara");
+define ("telpon","+62 86-592699");
+define ("dewil","3304061008");
 define ("kepala","Kepala Desane");
+define ("kopkelur","Kel. Smpr");
 ?>
-
