@@ -62,11 +62,11 @@
 			<label class="col-sm-3" for="jnzsebab">5. Sebab Kematian</label>
 			<div class="col-sm-9">
 			<select class="form-control" id="jnzsebab" name="jnzsebab" >
-				<option>[ 1 ] Sakit/Tua</option>
-				<option>[ 2 ] Wabah</option>
-				<option>[ 3 ] Kecelakaan</option>
-				<option>[ 4 ] Kriminalitas</option>
-				<option>[ 5 ] Bunuh Diri</option>
+				<option value="[ 1 ] Sakit/Tua">[ 1 ] Sakit/Tua</option>
+				<option value="[ 2 ] Wabah">[ 2 ] Wabah</option>
+				<option value="[ 3 ] Kecelakaan">[ 3 ] Kecelakaan</option>
+				<option value="[ 4 ] Kriminalitas">[ 4 ] Kriminalitas</option>
+				<option value="[ 5 ] Bunuh Diri">[ 5 ] Bunuh Diri</option>
 			</select>
 			</div>
 		</div>
@@ -75,10 +75,10 @@
 			<label class="col-sm-3" for="jnzterang">6. Yang Menerangkan</label>
 			<div class="col-sm-9">
 			<select class="form-control" id="jnzterang" name="jnzterang" >
-				<option>[ 1 ] Dokter</option>
-				<option>[ 2 ] Tenaga Kesehatan</option>
-				<option>[ 3 ] Kepolisian</option>
-				<option>[ 4 ] Lainnya</option>
+				<option value="[ 1 ] Dokter">[ 1 ] Dokter</option>
+				<option value="[ 2 ] Tenaga Kesehatan">[ 2 ] Tenaga Kesehatan</option>
+				<option value="[ 3 ] Kepolisian">[ 3 ] Kepolisian</option>
+				<option value="[ 4 ] Lainnya">[ 4 ] Lainnya</option>
 			</select>
 			</div>
 		</div>
