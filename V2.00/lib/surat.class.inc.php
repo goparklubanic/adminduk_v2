@@ -113,12 +113,13 @@ class suratdesa
 			return ("$nh, $d / $m /$y");
 		}
 		
-		function saveAgenda($klas,$tgl,$nik,$jabatan,$pemaraf)
+		function saveAgenda($klas,$tgl,$nik,$jabatan,$pemaraf,$sk)
 		{
 			$sql = "INSERT INTO agenda 
-					SET klasifikasi = ? , tanggal = ? , nik_pemohon = ?, jabt_pemaraf = ? , nama_pemaraf = ?";
+					SET klasifikasi = ? , tanggal = ? , nik_pemohon = ?, 
+						jabt_pemaraf = ? , nama_pemaraf = ? , sktab = ?";
 			$qry = $this->setQuery($sql);
-			$qry->execute(array($klas,$tgl,$nik,$jabatan,$pemaraf));
+			$qry->execute(array($klas,$tgl,$nik,$jabatan,$pemaraf,$sk));
 			$qry=null;
 		}
 		
@@ -150,7 +151,8 @@ class suratdesa
 		function agendaByNoKlas($nc,$page=1)
 		{
 			$start = ($page - 1) * 20;
-			$sql = "SELECT nomor,tanggal, nama_lengkap, nama_pemaraf, rt,rw
+			$sql = "SELECT nomor,tanggal, nama_lengkap, nama_pemaraf,
+					rt,rw,sktab
 					FROM agenda, penduduk 
 					WHERE penduduk.nik=agenda.nik_pemohon && klasifikasi= ? 
 					LIMIT $start,20";
@@ -158,9 +160,10 @@ class suratdesa
 			$qry->execute(array($nc));
 			while($rs = $qry->fetch())
 			{
+				//$sk=$this->kamusSk($rs['sktab']);
 				echo "
 				<tr>
-				  <td>".$rs['nomor']."</td>
+				  <td><a href='cetak.php?s=".$rs['sktab']."&id=".$rs['nomor']."'>".$rs['nomor']."</a></td>
 				  <td>".$rs['tanggal']."</td>
 				  <td>".$rs['nama_pemaraf']."</td>
 				  <td>".$rs['nama_lengkap'].", [ ".$rs['rt']." / ".$rs['rw']."]</td>
@@ -179,6 +182,42 @@ class suratdesa
 			$qry->execute(array($nc));
 			$rs = $qry->fetch();
 			return($rs['cacah']);
+		}
+		
+				
+		function serviceHistory($idxPdd)
+		{
+			$sql = "SELECT nomor,klasifikasi,tanggal,sktab FROM agenda 
+					WHERE nik_pemohon = (SELECT nik FROM penduduk 
+					WHERE idxPdd= ? LIMIT 1)";
+					
+			$qry = $this->setQuery($sql);
+			$qry->execute(array($idxPdd));
+			while ($rs = $qry->fetch())
+			{
+				$jensu = $this->kamusSkTab($rs['sktab']);
+				echo "
+				<tr>
+				  <td>".$rs['klasifikasi']."/".$rs['nomor']."/".kopkelur."/".date('Y')."</td>
+				  <td>".$rs['tanggal']."</td>
+				  <td>".$jensu."</td>
+				</tr>
+				";
+			}
+		}
+		
+		function kamusSkTab($sktab)
+		{
+			switch($sktab){
+				case 'ket': $jensu = 'Keterangan / Pengantar'; break;
+				case 'skm': $jensu = 'Surat Ket. Warga Tidak Mampu'; break;
+				case 'wkm': $jensu = 'Surat Ket. Siswa Tidak Mampu'; break;
+				case 'lhr': $jensu = 'Surat Ket. Kelahiran'; break;
+				case 'wft': $jensu = 'Surat Ket. Kematian'; break;
+				case 'pnd': $jensu = 'Surat Ket. Pindah'; break;
+				case 'ush': $jensu = 'Surat Ket. Usaha'; break;
+			}
+			return $jensu;
 		}
 }
 ?>

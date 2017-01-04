@@ -29,8 +29,9 @@ CREATE TABLE `agenda` (
   `nik_pemohon` varchar(20) DEFAULT NULL,
   `jabt_pemaraf` varchar(30) DEFAULT NULL,
   `nama_pemaraf` varchar(30) DEFAULT NULL,
+  `sktab` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`nomor`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,8 +40,33 @@ CREATE TABLE `agenda` (
 
 LOCK TABLES `agenda` WRITE;
 /*!40000 ALTER TABLE `agenda` DISABLE KEYS */;
-INSERT INTO `agenda` VALUES (0001,'474.1','2016-12-22','3304071110900001','Kasi 2','Mr. Alif Ba Ta'),(0002,'474.1','2016-12-22','3304071110900001','Kasi 3','Mr. Uvwxy'),(0003,'474.3','2016-12-23','3304071111630002','Sekretaris Kelurahan','Mr. Fghij'),(0004,'474.2','2016-12-23','3304072305820001','Kasi 1','Mr. Klmno'),(0005,'510','2016-12-23','3304076604920002','Sekretaris Kelurahan','Mr. Fghij'),(0006,'471.2','2016-12-23','3304075607740003','Kasi 3','Mr. Uvwxy'),(0007,'400','2016-12-24','3304072402590002','Kepala Kelurahan','Mr. Abcde'),(0008,'400','2016-12-24','3304072402590002','Kasi 3','Mr. Uvwxy');
+INSERT INTO `agenda` VALUES (0001,'474.1','2016-12-22','3304071110900001','Kasi 2','Mr. Alif Ba Ta','lhr'),(0002,'474.1','2016-12-22','3304071110900001','Kasi 3','Mr. Uvwxy','ket'),(0003,'474.3','2016-12-23','3304071111630002','Sekretaris Kelurahan','Mr. Fghij','wft'),(0004,'474.2','2016-12-23','3304072305820001','Kasi 1','Mr. Klmno','nkh'),(0005,'510','2016-12-23','3304076604920002','Sekretaris Kelurahan','Mr. Fghij','ush'),(0006,'471.2','2016-12-23','3304075607740003','Kasi 3','Mr. Uvwxy','pnd'),(0007,'400','2016-12-24','3304072402590002','Kepala Kelurahan','Mr. Abcde','wkm'),(0008,'400','2016-12-24','3304072402590002','Kasi 3','Mr. Uvwxy','skm'),(0009,'474.1','2017-01-02','3304071308840001','Kasi 1','Mr. Klmno','lhr'),(0010,'474.1','2017-01-02','3304071111830001','Kasi 2','Mr. Pqrst','lhr'),(0011,'474.5','2017-01-04','3304076206880002','Kasi 2','Mr. Pqrst','ket'),(0012,'300','2017-01-04','3304076206880002','Sekretaris Kelurahan','Mr. Fghij','ket');
 /*!40000 ALTER TABLE `agenda` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `laporan`
+--
+
+DROP TABLE IF EXISTS `laporan`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `laporan` (
+  `id` int(4) unsigned zerofill NOT NULL AUTO_INCREMENT,
+  `jenisLap` varchar(20) NOT NULL,
+  `dataLap` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `laporan`
+--
+
+LOCK TABLES `laporan` WRITE;
+/*!40000 ALTER TABLE `laporan` DISABLE KEYS */;
+INSERT INTO `laporan` VALUES (0001,'kelahiran','{\"tipelap\":\"kelahiran\",\"nomorKK\":\"3304070401130001\",\"nikBapak\":\"3304200201870001\",\"nikIbu\":\"3304076704920002\",\"bayiKe\":\"2\",\"namaBayi\":\"Iwantiatun\",\"beratBayi\":\"3.2\",\"panjangBayi\":\"47\",\"jkelamin\":\"P\",\"lahirDi\":\"[3] Polindes\",\"lahirTgl\":\"2016-12-25\",\"lahirJam\":\"00:30\",\"lahirKota\":\"Banjarnegara\",\"lahirJenis\":\"[1] Tunggal\",\"penolong\":\"[2] Bidan\\/Perawat\"}'),(0002,'kelahiran','{\"tipelap\":\"kelahiran\",\"nomorKK\":\"3304070202070002\",\"nikBapak\":\"3304072005830001\",\"nikIbu\":\"3304075810740002\",\"bayiKe\":\"2\",\"namaBayi\":\"Ali Maskur Musa\",\"beratBayi\":\"3.1\",\"panjangBayi\":\"49\",\"jkelamin\":\"L\",\"lahirDi\":\"[4] Rumah\",\"lahirTgl\":\"2016-12-29\",\"lahirJam\":\"14:22\",\"lahirKota\":\"Banjarnegara\",\"lahirJenis\":\"[1] Tunggal\",\"penolong\":\"[2] Bidan\\/Perawat\"}'),(0003,'kelahiran','{\"tipelap\":\"kelahiran\",\"nomorKK\":\"3304071407090052\",\"nikBapak\":\"3304072911690001\",\"nikIbu\":\"3304074601710005\",\"bayiKe\":\"2\",\"namaBayi\":\"Joko Suciadi\",\"beratBayi\":\"2.9\",\"panjangBayi\":\"47\",\"jkelamin\":\"L\",\"lahirDi\":\"[1] RS\\/RB\",\"lahirTgl\":\"2016-12-28\",\"lahirJam\":\"22:31\",\"lahirKota\":\"Banjarnegara\",\"lahirJenis\":\"[1] Tunggal\",\"penolong\":\"[1] Dokter\"}'),(0004,'kelahiran','{\"tipelap\":\"kelahiran\",\"nomorKK\":\"3304073011070004\",\"nikBapak\":\"3304072112750001\",\"nikIbu\":\"3304075907750002\",\"bayiKe\":\"3\",\"namaBayi\":\"Margo Utomo\",\"beratBayi\":\"3.5\",\"panjangBayi\":\"52\",\"jkelamin\":\"L\",\"lahirDi\":\"[1] RS\\/RB\",\"lahirTgl\":\"2016-12-26\",\"lahirJam\":\"20:37\",\"lahirKota\":\"Banjarnegara\",\"lahirJenis\":\"[1] Tunggal\",\"penolong\":\"[1] Dokter\"}'),(0005,'kematian','{\"tipelap\":\"kematian\",\"nomorKK\":\"3304070903053160\",\"nik\":\"3304070203630004\",\"anakke\":\"4\",\"tanggal\":\"2017-01-30\",\"sebab\":\"[ 1 ] Sakit\\/Tua\",\"tempat\":\"Rumah\",\"penerang\":\"[ 3 ] Kepolisian\"}'),(0006,'kematian','{\"tipelap\":\"kematian\",\"nomorKK\":\"3304070903053593\",\"nik\":\"3304071708600001\",\"anakke\":\"1\",\"tanggal\":\"2016-12-30\",\"jam\":\"23:55\",\"sebab\":\"[ 1 ] Sakit\\/Tua\",\"tempat\":\"Rumah\",\"penerang\":\"[ 2 ] Tenaga Kesehatan\"}'),(0007,'kematian','{\"tipelap\":\"kematian\",\"nomorKK\":\"3304071804120003\",\"nik\":\"3304074311930001\",\"anakke\":\"1\",\"tanggal\":\"2017-01-01\",\"jam\":\"00:12\",\"sebab\":\"[ 1 ] Sakit\\/Tua\",\"tempat\":\"RSU Banjarnegara\",\"penerang\":\"[ 1 ] Dokter\"}'),(0008,'kematian','{\"tipelap\":\"kematian\",\"nomorKK\":\"3304070903053179\",\"nik\":\"3304071004520001\",\"anakke\":\"1\",\"tanggal\":\"2017-01-02\",\"jam\":\"04:30\",\"sebab\":\"[ 1 ] Sakit\\/Tua\",\"tempat\":\"Rumah\",\"penerang\":\"[ 3 ] Kepolisian\"}'),(0009,'kepindahan','{\"tipelap\":\"kepindahan\",\"nomorKK\":\"3304070308070002\",\"nik\":\"3304071905020001\",\"alasan\":\"[ 1 ] Pekerjaan\",\"tujuan\":\"Ciseek RT. 02 RW. 04 Rancaekek Bandung\",\"jenis\":\"[ 1 ] Keluarga\",\"kkpindah\":\"[ 1 ] Numpang KK\",\"kktetap\":\"[ 3 ] Nomor KK Tetap\",\"pengikut\":\"3304071905020001\"}'),(0010,'kepindahan','{\"tipelap\":\"kepindahan\",\"nomorKK\":\"3304071409110006\",\"nik\":\"3304070905900001\",\"alasan\":\"[ 5 ] Perumahan\",\"tujuan\":\"RT. 08 RW, 01 Desa Ambarsari Kec. Kencor Purworejo\",\"jenis\":\"[ 2 ] Keluarga dan Seluruh Anggota\",\"kkpindah\":\"[ 3 ] Nomor KK Tetap\",\"kktetap\":\"[ 3 ] Nomor KK Tetap\",\"pengikut\":\"3304070608110001,3304076206880001\"}'),(0011,'kelahiran','{\"tipelap\":\"kelahiran\",\"nomorKK\":\"3304072202120002\",\"nikBapak\":\"3304071111830001\",\"nikIbu\":\"3304075502880004\",\"bayiKe\":\"2\",\"namaBayi\":\"Lare Jajalan\",\"beratBayi\":\"3.3\",\"panjangBayi\":\"48\",\"jkelamin\":\"[ L ] Laki-laki\",\"lahirDi\":\"[4] Rumah\",\"lahirTgl\":\"2016-12-19\",\"lahirJam\":\"22:09\",\"lahirKota\":\"Banjarnegara\",\"lahirJenis\":\"[1] Tunggal\",\"penolong\":\"[3] Dukun\"}'),(0012,'kelahiran','{\"tipelap\":\"kelahiran\",\"nomorKK\":\"3304072706130002\",\"nikBapak\":\"3304071308840001\",\"nikIbu\":\"3304076811820002\",\"bayiKe\":\"2\",\"namaBayi\":\"Santosa Putri\",\"beratBayi\":\"3.5\",\"panjangBayi\":\"52\",\"jkelamin\":\"[ P ] Perempuan\",\"lahirDi\":\"[1] RS\\/RB\",\"lahirTgl\":\"2016-12-27\",\"lahirJam\":\"11:59\",\"lahirKota\":\"Banjarnegara\",\"lahirJenis\":\"[1] Tunggal\",\"penolong\":\"[1] Dokter\"}');
+/*!40000 ALTER TABLE `laporan` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -208,7 +234,7 @@ CREATE TABLE `sk_lahir` (
 
 LOCK TABLES `sk_lahir` WRITE;
 /*!40000 ALTER TABLE `sk_lahir` DISABLE KEYS */;
-INSERT INTO `sk_lahir` VALUES ('474.1','0001','2016-12-22','3304073108120002','ALFANDANI REZKI SETAWATI','[ P ] Perempuan','[ 3 ] Polindes','Banjarnegara','2016-12-12','05:30','[ 1 ] Tunggal',2,'[ 2 ] Bidan / Perawat','3.2','48','3304085601900001','2008-02-21','3304071110900001','3304071110900001','3304070703670002','3304074608010001');
+INSERT INTO `sk_lahir` VALUES ('474.1','0001','2016-12-22','3304073108120002','ALFANDANI REZKI SETAWATI','[ P ] Perempuan','[ 3 ] Polindes','Banjarnegara','2016-12-12','05:30','[ 1 ] Tunggal',2,'[ 2 ] Bidan / Perawat','3.2','48','3304085601900001','2008-02-21','3304071110900001','3304071110900001','3304070703670002','3304074608010001'),('474.1','0009','2017-01-02','$dalap[nomorKK]','$dalap[namaBayi]','$dalap[jkelamin]','$dalap[lahirDi]','$dalap[lahirKota]','0000-00-00','$dalap[la','$dalap[lahirJe',0,'$dalap[penolong]','$dalap[b','$dala','$dalap[nikIbu]','1986-02-08','$dalap[nikBapak]','3304071308840001','3304072502600002','3304072812860002'),('474.1','0010','2017-01-02','3304072202120002','Lare Jajalan','[ L ] Laki-laki','[4] Rumah','Banjarnegara','2016-12-19','22:09','[1] Tunggal',2,'[3] Dukun','3.3','48','3304075502880004','1985-01-31','3304071111830001','3304071111830001','3304072502600002','3304072812860002');
 /*!40000 ALTER TABLE `sk_lahir` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -263,7 +289,7 @@ CREATE TABLE `sk_pengantar` (
 
 LOCK TABLES `sk_pengantar` WRITE;
 /*!40000 ALTER TABLE `sk_pengantar` DISABLE KEYS */;
-INSERT INTO `sk_pengantar` VALUES ('474.1','0002','2016-12-22','3304071110900001','Membuat Akte Lahir','2016-12-22','Ybs benar-benar warga Kelurahan Semampir Banjarnegara'),(NULL,'KET001','2016-11-28','3304075803920001','Mendaftar Perguran Tinggi','2016-11-28','Ybs Benar-benar warga setempat');
+INSERT INTO `sk_pengantar` VALUES ('474.1','0002','2016-12-22','3304071110900001','Membuat Akte Lahir','2016-12-22','Ybs benar-benar warga Kelurahan Semampir Banjarnegara'),('474.5','0011','2017-01-04','3304076206880002','Memperbarui Kartu Keluarga','2017-01-04','Ybs benar-benar warga kel. semampir'),('300','0012','2017-01-04','3304076206880002','Membuat Surat Kehilangan Dokumen Negara','2017-01-04','Yang Bersangkutan benar-benar warga kelurahan semampir'),(NULL,'KET001','2016-11-28','3304075803920001','Mendaftar Perguran Tinggi','2016-11-28','Ybs Benar-benar warga setempat');
 /*!40000 ALTER TABLE `sk_pengantar` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -467,4 +493,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-12-24 12:45:30
+-- Dump completed on 2017-01-04 15:28:34

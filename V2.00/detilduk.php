@@ -80,4 +80,17 @@ echo "
 </div>
 ";
 echo "</div>";
+echo "
+	<div><h4>Riwayat Layanan Surat</h4></div>
+	<table class='table table-sm'>
+	  <tr>
+	    <th>Nomor Surat</th>
+	    <th>Tanggal</th>
+	    <th>Jenis Surat</th>
+	  </tr>
+";
+$srh = $dok->serviceHistory($_GET['id']);
+echo "
+	</table>
+";
 ?>

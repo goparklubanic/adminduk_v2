@@ -98,7 +98,7 @@ if($sk=="ush"){
 
 list($jabatan,$pemaraf)=explode(":",$_POST['ttd']);
 $surat->saveAgenda($_POST['no_klas'],$_POST['tgs'],$_POST['nik'],
-				   $jabatan,$pemaraf);
+				   $jabatan,$pemaraf,$sk);
 
 //lanjut ke cetak
 echo "
