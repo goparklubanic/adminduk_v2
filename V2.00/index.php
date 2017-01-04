@@ -105,6 +105,8 @@ if(!isset($_SESSION['user'])){header("Location:./login/");}
 				case 'daftpilih' : include "wapil.php"  ;	break;
 				case 'kk'        : include "daftar-kk.php";	break;
 				case 'surat'     : include "formsurat.php"; 	break;
+				case 'laporan'   : include "laporan.php"; break;
+				case 'stagen'    : include "stagenda.php"; break;
 				
 			}
 		}

@@ -1,7 +1,7 @@
 <div class="form-group">
   <label class="col-sm-3">Nomor Klasifikasi</label>
   <div class="col-sm-9">
-   <select name="no_klas" class="form-control">
+   <select name="no_klas" id="no_klas" class="form-control">
 	<option value='11.1'>11.1 - GEDUNG KANTOR/TERMASUK INSTALASI PRASARANA FISIK PAMONG /KANTOR DINAS</option>
 	<option value='60'>60 - ORGANISASI</option>
 	<option value='300'>300 - KEAMANAN/KETERTIBAN</option>
@@ -32,7 +32,10 @@
    </select>
   </div>
 </div>
-<div class="form-group">
+<?php
+if($_GET['menu']=='stagen'){$ds = "style='display:none;'";}else{$ds = "style='display:block;'";}
+?>
+<div class="form-group" <?php echo $ds;?> >
 	<label class='col-sm-3'>Nomor Agenda</label>
 	<div class='col-sm-9'>
 		<input type='text' class='col-sm-2' name='nos' Readonly value="<?php echo sprintf("%04d",$noa); ?>"/><span class='col-sm-10'>/Kel.Smpr/<?php echo date('Y'); ?></span>

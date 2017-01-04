@@ -1,0 +1,21 @@
+Kelahiran:
+Nomor Surat
+Tanggal Surat
+Tanggal catat nikah
+nik pelapor 1
+nik pelapor 2
+Penanda tangan
+
+Kematian:
+Nomor Surat
+Tanggal Surat
+Nik ayah
+Nik ibu
+Nik Saksi 1
+Nik Saksi 2
+Penanda Tangan
+
+Pindah
+Nomor surat
+tanggal surat
+Penanda tangan

@@ -8,4 +8,5 @@
   <li><a href="./?menu=surat&sk=pindah">PINDAH</a></li>
   <li><a href="./?menu=surat&sk=siswakm">SISWA KURANG MAMPU</a></li>
   <li><a href="./?menu=surat&sk=wargakm">WARGA KURANG MAPU</a></li>
+  <li><a href="./?menu=stagen">STATISTIK AGENDA</a></li>
 </ul>

@@ -397,6 +397,7 @@ $wft = <<<EOWft
 	</div>
 EOWft;
 echo $wft;
+
 }
 
 function sk_nikah($ad,$kop,$data,$warga,$jbt,$ttd){
@@ -458,6 +459,7 @@ $kop
 
 EONkh;
 echo $nkh;
+
 }
 
 function sk_usaha($ad,$kop,$data,$warga,$jbt,$ttd){
@@ -528,6 +530,7 @@ $kop
 	</div>
 EOUsh;
 echo $ush;
+
 }
 
 function sk_pengantar($ad,$kop,$data,$warga,$jbt,$ttd){
@@ -635,6 +638,7 @@ $kop
 	</div>
 EOKet;
 echo $ket;
+
 }
 
 function sk_pindah($ad,$kop,$data,$warga,$namakk,$pengikut,$jbt,$ttd){
@@ -715,6 +719,7 @@ $kop
 	</div>
 EOPnd;
 echo $pnd;
+
 }
 
 function sk_kurma1($ad,$kop,$data,$ortu,$anak,$jbt,$ttd){
@@ -799,6 +804,7 @@ $kop
 	</div>
 EOSkm;
 echo $skm;
+
 }
 
 function sk_kurma2($ad,$kop,$data,$warga,$jbt,$ttd){
@@ -852,6 +858,7 @@ $kop
 	</div>
 EOWkm;
 echo $wkm;
+
 }
 }
 ?>

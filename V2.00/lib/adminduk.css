@@ -12,7 +12,7 @@
 }
 #knock {text-align:center; margin:5px 0 15px 0; }
 #knock img{ width: 50px; border-radius:20px;}
-
+#cacahDokumen{margin-top:100ppx; padding: 5px; background: #E0E0E0;}
 /* CLASSes */
 .footer{position:absolute; bottom: 10px; width: 100%; text-align: center; border:0px solid navy;}
 .noa {text-align:center; width:50px; border:none;}
