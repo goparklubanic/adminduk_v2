@@ -146,5 +146,39 @@ class suratdesa
 			$rs=$qry->fetch();
 			return $rs;
 		}
+		
+		function agendaByNoKlas($nc,$page=1)
+		{
+			$start = ($page - 1) * 20;
+			$sql = "SELECT nomor,tanggal, nama_lengkap, nama_pemaraf, rt,rw
+					FROM agenda, penduduk 
+					WHERE penduduk.nik=agenda.nik_pemohon && klasifikasi= ? 
+					LIMIT $start,20";
+			$qry = $this->setQuery($sql);
+			$qry->execute(array($nc));
+			while($rs = $qry->fetch())
+			{
+				echo "
+				<tr>
+				  <td>".$rs['nomor']."</td>
+				  <td>".$rs['tanggal']."</td>
+				  <td>".$rs['nama_pemaraf']."</td>
+				  <td>".$rs['nama_lengkap'].", [ ".$rs['rt']." / ".$rs['rw']."]</td>
+				  <td>".$rs['rt']."</td>
+				  <td>".$rs['rw']."</td>
+				</tr>
+				";
+			}
+		}
+		
+		function agendaCacahKlas($nc)
+		{
+			$sql = "SELECT COUNT(klasifikasi) cacah FROM agenda
+					WHERE klasifikasi= ?";
+			$qry = $this->setQuery($sql);
+			$qry->execute(array($nc));
+			$rs = $qry->fetch();
+			return($rs['cacah']);
+		}
 }
 ?>

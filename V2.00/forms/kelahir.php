@@ -4,7 +4,7 @@
 				<div class="form-group">
 					<label class="col-sm-3" for="nok">Nomor Urut Agenda</label>
 					<div class="col-sm-9">
-					474.1/<input type="text" class="noa" id="nok" name="nok" readonly value="<?php echo $noa; ?>"/>
+					474.1/<input type="text" class="noa" id="nos" name="nos" readonly value="<?php echo $noa; ?>"/>
 					<span >/<?php echo kopkelur ."/". date('Y'); ?></span>
 					</div>
 				</div>
@@ -172,7 +172,7 @@
 			</div>
 		</div>
 		<?php include "pemaraf.php"; ?>
-		<button type="submit" class="btn btn-default">PROSES</button>
+		<input type="submit" class="btn btn-default" value="PROSES">
 	</form>
 		<!-- data Pelapor dan Saksi -->
 		

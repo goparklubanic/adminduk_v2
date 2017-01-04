@@ -1,4 +1,5 @@
 <?php
+
 date_default_timezone_set('Asia/Jakarta');
 require_once 'config.php';
 require_once './lib/surat.class.inc.php';
@@ -79,6 +80,7 @@ $n=$_GET['id'];
   </head>
 
   <body onLoad=window.print();>
+  <body-->
 <?php
 
 if($s=="lhr"){
@@ -91,7 +93,7 @@ $lpr = $pdd->wargaDataSingkat($data[18]);
 $sk1 = $pdd->wargaDataSingkat($data[19]);
 $sk2 = $pdd->wargaDataSingkat($data[20]);
 list($jbt,$ttd)=$surat->pemaraf($data[1]);
-$dok->sk_lahir($lconf,$data,$hariLahir,$ibu,$bpk,$lpr,$sk1,$sk2,$jbt,$ttd);
+$html=$dok->sk_lahir($lconf,$data,$hariLahir,$ibu,$bpk,$lpr,$sk1,$sk2,$jbt,$ttd);
 }
 
 if($s=="wft"){
@@ -105,7 +107,7 @@ $lpr = $pdd->wargaDataSingkat($data[13]);
 $sk1 = $pdd->wargaDataSingkat($data[14]);
 $sk2 = $pdd->wargaDataSingkat($data[15]);
 list($jbt,$ttd)=$surat->pemaraf($data[1]);
-$dok->sk_wafat($lconf,$data,$namakk,$jnz,$ibu,$bpk,$lpr,$sk1,$sk2,$jbt,$ttd);
+$html=$dok->sk_wafat($lconf,$data,$namakk,$jnz,$ibu,$bpk,$lpr,$sk1,$sk2,$jbt,$ttd);
 }
 
 if($s=="nkh"){
@@ -113,7 +115,7 @@ if($s=="nkh"){
 $data  = $surat->suratPick('sk_nikah',$n);
 $warga = $pdd->wargaDataSingkat($data[3]);
 list($jbt,$ttd)=$surat->pemaraf($data[1]);
-$dok->sk_nikah($lconf,$A4,$data,$warga,$jbt,$ttd);
+$html=$dok->sk_nikah($lconf,$A4,$data,$warga,$jbt,$ttd);
 }
 
 if($s=="ush"){
@@ -121,7 +123,7 @@ if($s=="ush"){
 $data  = $surat->suratPick('sk_usaha',$n); 
 $warga = $pdd->wargaDataSingkat($data[3]);
 list($jbt,$ttd)=$surat->pemaraf($data[1]);
-$dok->sk_usaha($lconf,$A4,$data,$warga,$jbt,$ttd);
+$html=$dok->sk_usaha($lconf,$A4,$data,$warga,$jbt,$ttd);
 }
 
 if($s=="ket"){
@@ -130,7 +132,7 @@ if($s=="ket"){
 $data  = $surat->suratPick('sk_pengantar',$n); 
 $warga = $pdd->wargaDataSingkat($data[3]);
 list($jbt,$ttd)=$surat->pemaraf($data[1]);
-$dok->sk_pengantar($lconf,$A5,$data,$warga,$jbt,$ttd);
+$html=$dok->sk_pengantar($lconf,$A5,$data,$warga,$jbt,$ttd);
 }
 
 if($s == "pnd"){
@@ -140,7 +142,7 @@ $warga = $pdd->wargaDataSingkat($data[4]);
 $namakk=$pdd->KepalaKeluarga($data[3]);
 $pengikut=$pdd->pengikutPindah($data[10]);
 list($jbt,$ttd)=$surat->pemaraf($data[1]);
-$dok->sk_pindah($lconf,$A4,$data,$warga,$namakk,$pengikut,$jbt,$ttd);
+$html=$dok->sk_pindah($lconf,$A4,$data,$warga,$namakk,$pengikut,$jbt,$ttd);
 }
 
 if($s == "skm"){
@@ -149,7 +151,7 @@ $data = $surat->suratPick('sk_kurma1',$n);
 $ortu = $pdd->wargaDataSingkat($data[4]);
 $anak = $pdd->wargaDataSingkat($data[3]);
 list($jbt,$ttd)=$surat->pemaraf($data[1]);
-$dok->sk_kurma1($lconf,$A5,$data,$ortu,$anak,$jbt,$ttd);
+$html=$dok->sk_kurma1($lconf,$A5,$data,$ortu,$anak,$jbt,$ttd);
 }
 
 if($s == "wkm"){
@@ -159,9 +161,8 @@ $data  = $surat->suratPick('sk_kurma2',$n);
 $warga = $pdd->wargaDataSingkat($data[3]);
 //print_r($warga);
 list($jbt,$ttd)=$surat->pemaraf($data[1]);
-$dok->sk_kurma2($lconf,$A5,$data,$warga,$jbt,$ttd);
+$html=$dok->sk_kurma2($lconf,$A5,$data,$warga,$jbt,$ttd);
 }
-
 
 ?>
 <a href="./" class="noprint">Kembali</a>
