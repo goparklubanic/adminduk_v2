@@ -17,11 +17,19 @@ echo "<h3>".$_GET['d']."</h3>";
 	<tbody>
 	<tr><td class ='rekap' colspan='4'><b>REKAP PER RT</b></tr>
 	<?php
-	$stt->pilrtrw($_GET['c'],$_GET['d']);
-	echo "<tr><td class ='rekap' colspan='4'><b>REKAP PER RW</b></tr>";
-	$stt->pilrw($_GET['c'],$_GET['d']);
-	echo "<tr><td class ='rekap' colspan='4'><b>JUMLAH KESELURUHAN</b></tr>";
-	$stt->pildesa($_GET['c'],$_GET['d']);
+	if($_GET['c']=='kelamin'){
+		$stt->kelRtRw();
+		echo "<tr><td class ='rekap' colspan='4'><b>REKAP PER RW</b></tr>";
+		$stt->kelRw();
+		echo "<tr><td class ='rekap' colspan='4'><b>JUMLAH KESELURUHAN</b></tr>";
+		$stt->kelDesa();
+	}else{
+		$stt->pilrtrw($_GET['c'],$_GET['d']);
+		echo "<tr><td class ='rekap' colspan='4'><b>REKAP PER RW</b></tr>";
+		$stt->pilrw($_GET['c'],$_GET['d']);
+		echo "<tr><td class ='rekap' colspan='4'><b>JUMLAH KESELURUHAN</b></tr>";
+		$stt->pildesa($_GET['c'],$_GET['d']);
+	}
 	?>
 	</tbody>
 	</table>

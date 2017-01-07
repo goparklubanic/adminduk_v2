@@ -159,5 +159,105 @@ class statistik{
 		$qry -> execute(array($mu,$su,$rt,$rw));
 		$rs = $qry->fetch(); return $rs['pokumur'];
 	}
+	
+	//fungsi kelamin //
+	function jmKelPerRt($s,$t,$w)
+	{
+		$qry = $this->setQuery("SELECT COUNT(kelamin) kelamin 
+				FROM view_penduduk 
+				WHERE	kelamin = ? && rt = ? && rw = ?");
+		$qry->execute(array($s,$t,$w));
+		$rs = $qry->fetch();
+		return $rs['kelamin'];
+		$qry->closeCursor();
+	}
+	
+	function jmKelPerRw($s,$w)
+	{
+		$qry = $this->setQuery("SELECT COUNT(kelamin) kelamin 
+				FROM view_penduduk 
+				WHERE	kelamin = ? && rw = ? && rt !=0");
+		$qry->execute(array($s,$w));
+		$rs = $qry->fetch();
+		return $rs['kelamin'];
+		$qry->closeCursor();
+	}
+	
+	function jmKelPerDesa($s)
+	{
+		$qry = $this->setQuery("SELECT COUNT(kelamin) kelamin 
+				FROM view_penduduk 
+				WHERE	kelamin = ? && rt !=0 && rw !=0");
+		$qry->execute(array($s));
+		$rs = $qry->fetch();
+		return $rs['kelamin'];
+		$qry->closeCursor();
+	}
+	
+	function kelRtRw()
+	{
+		$qry = $this->setQuery("SELECT distinct(concat(rt,'/',rw)) AS rtrw,
+				rt,rw
+				FROM penduduk WHERE rt != 0 && rw !=0 
+				ORDER BY rw,rt");
+		$qry->execute();
+		while($rs = $qry->fetch())
+		{
+			
+			$jmL = $this->jmKelPerRt('L',$rs['rt'],$rs['rw']);
+			$jmP = $this->jmKelPerRt('P',$rs['rt'],$rs['rw']);
+			$jmT = $jmL + $jmP;
+			
+			echo "
+			<tr>
+				<td> RT. ".$rs['rt']." RW. ".$rs['rw']."</td>
+				<td align='right'>".$jmL."</td>
+				<td align='right'>".$jmP."</td>
+				<td align='right'>".$jmT."</td>
+			</tr>
+			";
+		}
+		$qry->closeCursor();
+	}
+	
+	function kelRw()
+	{
+		$qry = $this->setQuery("SELECT distinct(rw) AS rw
+				FROM penduduk WHERE rw != 0
+				ORDER BY rw");
+		$qry->execute();
+		while($rs = $qry->fetch())
+		{
+			$jmL = $this->jmKelPerRw('L',$rs['rw']);
+			$jmP = $this->jmKelPerRw('P',$rs['rw']);
+			$jmT = $jmL + $jmP;
+			echo "
+			<tr>
+				<td>RW. ".$rs['rw']."</td>
+				<td align='right'>".$jmL."</td>
+				<td align='right'>".$jmP."</td>
+				<td align='right'>".$jmT."</td>
+			</tr>
+			";
+		}
+		$qry->closeCursor();
+	}
+	
+	function kelDesa()
+	{
+		
+			$jmL = $this->jmKelPerDesa('L');
+			$jmP = $this->jmKelPerDesa('P');
+			$jmT = $jmL + $jmP;
+			echo "
+			<tr>
+				<td>Jumlah total</td>
+				<td align='right'>".$jmL."</td>
+				<td align='right'>".$jmP."</td>
+				<td align='right'>".$jmT."</td>
+			</tr>
+			";
+	}
+	//fungsi kelamin //
 }
 ?>

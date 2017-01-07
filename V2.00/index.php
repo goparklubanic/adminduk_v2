@@ -74,6 +74,7 @@ if(!isset($_SESSION['user'])){header("Location:./login/");}
         
         <li><a href="./?menu=statistik">STATISTIK</a></li>  
         <li><a href="./?menu=daftpilih">DAFTAR PEMILIH</a></li>
+        <li><a href="./?menu=ekswarga">PERNAH JADI WARGA</a></li>
       </ul>
       <ul class="nav navbar-pills .nav-stacked">
         <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign In</a></li>
@@ -107,6 +108,7 @@ if(!isset($_SESSION['user'])){header("Location:./login/");}
 				case 'surat'     : include "formsurat.php"; 	break;
 				case 'laporan'   : include "laporan.php"; break;
 				case 'stagen'    : include "stagenda.php"; break;
+				case 'ekswarga'  : include "ekswarga.php"; break;
 				
 			}
 		}

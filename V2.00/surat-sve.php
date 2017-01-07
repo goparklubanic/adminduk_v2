@@ -70,7 +70,7 @@ if($sk=="pnd"){
 	$_POST['kelpindah']);
 	
 	$surat->pindahAdd($datask);
-	$pendd->wargaMutasi($_POST['nik'],"pindah");
+	$pendd->wargaMutasi($_POST['nik'],"pindah",$_POST['tgs']);
 	
 	$ikpind = explode(",",$_POST['kelpindah']);
 	if(!empty($_POST['kelpindah']))
@@ -78,7 +78,7 @@ if($sk=="pnd"){
 		$i=0 ;
 		while($i < count($ikpind))
 		{
-			$pendd->wargaMutasi($ikpind[$i],"pindah");
+			$pendd->wargaMutasi($ikpind[$i],"pindah",$_POST['tgs']);
 			$i++;
 		}
 	}

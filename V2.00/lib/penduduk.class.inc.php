@@ -98,10 +98,11 @@ class penduduk
 	}
 	
 	
-	function wargaMutasi($nik,$status)
+	function wargaMutasi($nik,$status,$tgl)
 	{
-		 $qry = $this->setQuery("UPDATE penduduk SET mutasi = ? WHERE nik = ?");
-		 $qry->execute(array($status,$nik));
+		 $qry = $this->setQuery("UPDATE penduduk SET mutasi = ? tglMutas = ?
+				WHERE nik = ?");
+		 $qry->execute(array($status,$tgl,$nik));
 		 $qry->closeCursor();
 	}
 	
@@ -237,6 +238,56 @@ class penduduk
 		$qry->execute(array($nik));
 		$rs=$qry->fetch();
 		return $rs;
+	}
+	
+	function ekswarga()
+	{
+		$qry = $this->setQuery("SELECT nik,nama_lengkap,mutasi,tglMutasi 
+				FROM penduduk 
+				WHERE 	rt !=0 && rw !=0 && 
+						(mutasi = 'pindah' || mutasi = 'meninggal')
+				LIMIT 20");
+						
+		$qry->execute();
+		while($rs = $qry->fetch())
+		{
+			$dokmut = $this->dokMutasi($rs['mutasi'],$rs['nik']);
+			echo "
+			<tr>
+			  <td>".$rs['nik']."</td>
+			  <td>".$rs['nama_lengkap']."</td>
+			  <td>".$rs['mutasi']."</td>
+			  <td>".$rs['tglMutasi']."</td>
+			  <td>".$dokmut."</td>
+			</tr>
+			";
+		}
+	}
+	
+	function dokMutasi($mut,$nik)
+	{
+		//return("$mut/$nik");
+		if($mut == 'pindah')
+		{
+			$sql = "SELECT no_klas,nomor,tanggal FROM sk_pindah
+					WHERE nik_pemohon = ? OR nik_keluarga_pindah LIKE ?
+					LIMIT 1";
+			$qry = $this->setQuery($sql);
+			$qry->execute(array($nik,"%".$nik."%"));
+			$rs=$qry->fetch();
+			return($rs['no_klas']." / ".$rs['nomor']." / Tgl. ".$rs['tanggal']);
+		}
+		
+		if($mut == 'meninggal')
+		{
+			$sql = "SELECT no_klas,nomor,tanggal FROM sk_wafat
+					WHERE jnz_nik = ?
+					LIMIT 1";
+			$qry = $this->setQuery($sql);
+			$qry->execute(array($nik));
+			$rs=$qry->fetch();
+			return($rs['no_klas']." / ".$rs['nomor']." / Tgl. ".$rs['tanggal']);
+		}
 	}
 	
 	function paging($m=0)

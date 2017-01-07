@@ -1,21 +1,21 @@
 <?php
 include "menustatis.html";
 if(!isset($_GET['st'])){echo "<script>window.location='./?menu=statistik&st=st_kawin';</script>";}
-$info = $stt->distCol($_GET['st']);
-echo "<div><h2>DATA "; echo kamus($_GET['st']); echo "</h2></div>";
+	$info = $stt->distCol($_GET['st']);
+	echo "<div><h2 id='judulstt'>DATA "; echo kamus($_GET['st']); echo "</h2></div>";
 
-echo "<select id='stareq' onChange=staliat('".$_GET['st']."',this.value) class='form-control'>";
-for($tr = 0 ; $tr < count($info) ; $tr++)
-{
+	echo "<select id='stareq' onChange=staliat('".$_GET['st']."',this.value) class='form-control'>";
+	for($tr = 0 ; $tr < count($info) ; $tr++)
+	{
 	
-	if($info[$tr]==""){
-		echo "<option value=''>TANPA KETERANGAN</option>";
-	}else{
-		echo "<option value='".$info[$tr]."'>".strtoupper($info[$tr])."</option>";
+		if($info[$tr]==""){
+			echo "<option value=''>TANPA KETERANGAN</option>";
+		}else{
+			echo "<option value='".$info[$tr]."'>".strtoupper($info[$tr])."</option>";
+		}
+	
 	}
-	
-}
-echo "</select>";
+	echo "</select>";
 ?>
 <div id="stadata">
 	<table class='table table-sm'>
@@ -52,5 +52,10 @@ function kamus($st){
 	function staliat(col,data){
 		var url="sttQuery.php?c="+col+"&d="+data;
 		loadContent('stadata',url);
+	}
+	function stakel(){
+		document.getElementById('judulstt').innerHTML='DATA JENIS KELAMIN';
+		document.getElementById('stareq').style.display='none';
+		staliat('kelamin','');
 	}
 </script>

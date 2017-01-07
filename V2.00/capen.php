@@ -4,6 +4,7 @@
 		<label class="control-label col-sm-4">Cari Berdasar</label>
 		<div class="col-sm-8">
 			<select class="form-control" id="filter">
+				<option value="nik">NIK</option>
 				<option value="nama_lengkap">Nama</option>
 				<option value="pekerjaan">Pekerjaan</option>
 				<option value="gol_darah">Golongan Darah</option>
