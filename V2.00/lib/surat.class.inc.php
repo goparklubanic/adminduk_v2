@@ -151,7 +151,7 @@ class suratdesa
 		function agendaByNoKlas($nc,$page=1)
 		{
 			$start = ($page - 1) * 20;
-			$sql = "SELECT nomor,tanggal, nama_lengkap, nama_pemaraf, rt,rw
+			$sql = "SELECT nomor,tanggal, nama_lengkap, nama_pemaraf, rt,rw, sktab
 					FROM agenda, penduduk 
 					WHERE penduduk.nik=agenda.nik_pemohon && klasifikasi= ? 
 					LIMIT $start,20";
@@ -162,10 +162,8 @@ class suratdesa
 				//$sk=$this->kamusSk($rs['sktab']);
 				echo "
 				<tr>
-				  <td><a href='cetak.php?s=".$rs['sktab']."&id=".$rs['nomor']."'>".$rs['nomor']."</a></td>";
-				echo "
-				<tr>
-				  <td>".$rs['nomor']."</td>
+				  <td>
+				    <a href='cetak.php?s=".$rs['sktab']."&id=".$rs['nomor']."'>".$rs['nomor']."</a></td>
 				  <td>".$rs['tanggal']."</td>
 				  <td>".$rs['nama_pemaraf']."</td>
 				  <td>".$rs['nama_lengkap'].", [ ".$rs['rt']." / ".$rs['rw']."]</td>
