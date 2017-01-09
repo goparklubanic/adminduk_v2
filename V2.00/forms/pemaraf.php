@@ -1,5 +1,8 @@
 <?php
-
+require_once("./lib/aparatur.class.inc.php");
+$apr = new aparatur();
+$pemaraf = $apr->pemaraf();
+/*
 $pemaraf=array(	array("jabt"=>"Kepala Kelurahan","nama"=>"Mr. Abcde"),
 				array("jabt"=>"Sekretaris Kelurahan","nama"=>"Mr. Fghij"),
 				array("jabt"=>"Kasi 1","nama"=>"Mr. Klmno"),
@@ -9,6 +12,10 @@ $pemaraf=array(	array("jabt"=>"Kepala Kelurahan","nama"=>"Mr. Abcde"),
 				array("jabt"=>"Kasi 5","nama"=>"Mrs. Efghi")
 				);
 
+echo "<pre>";
+print_r($pemaraf);
+echo "</pre>";
+*/ 
 ?>
 <div class="form-group">
 	<label class="col-sm-3">Penanda tangan</label>

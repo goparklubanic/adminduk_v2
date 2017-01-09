@@ -186,6 +186,74 @@ class formulir
 		
 	}
 	
+	#kkx
+	function kkx($ap,$val=array())
+	{
+		echo "
+		<form role='form' action='".$ap."' method='POST' class='form-horizontal'>
+		<input type='hidden' name='idxPdd' value='".$val['idxPdd']."' />
+			<div class='form-group'>
+				<label class='control-label col-sm-4'>NOMOR INDUK KEPENDUDUKAN</label>
+				<div class='col-sm-6'>";
+					$this->textbox('nik','nik','',$val['nik']);
+		echo "
+				</div>
+			</div>
+			
+			<div class='form-group'>
+				<label class='control-label col-sm-4'>NAMA LENGKAP</label>
+				<div class='col-sm-6'>";
+					$this->textbox('nama','nama_lengkap','',$val['nama_lengkap']);
+		echo "
+				</div>
+			</div>
+				
+			<div class='form-group'>
+				<label class='control-label col-sm-4'>TEMPAT  LAHIR DAN TANGGAL LAHIR</label>
+				<div class='col-sm-4'>";
+				$this->textbox('tp_lahir','tp_lahir','',$val['tp_lahir']);
+		echo"
+				</div>
+				<div class='col-sm-2'>";
+				$this->datebox('tg_lahir','tg_lahir','',$val['tg_lahir'],'TTTT-BB-HH');
+		echo"
+				</div>
+				<div class='col-sm-2'>".$val['tp_lahir'].", ".$val['tg_lahir']."</div>
+			</div>
+					
+			<div class='form-group'>
+				<label class='control-label col-sm-4'>PEKERJAAN</label>
+				<div class='col-sm-6'>";
+				$pkj = $this->optData('pekerjaan','selected');
+				$this->select('pekerjaan',$pkj);
+		echo "	</div>
+				<div class='col-sm-2'>".$val['pekerjaan']."</div>
+			</div>
+			
+			<div class='form-group'>
+				<label class='control-label col-sm-4'>ALAMAT</label>
+				<div class='col-sm-4'>";
+				$this->textbox('dusun','dusun','',$val['dusun'],'Dusun');	
+		echo "	</div>
+				<div class='col-sm-1'>";
+				$this->textbox('rt','rt','',$val['rt'],'RT');	
+		echo "	</div>
+				<div class='col-sm-1'>";
+				$this->textbox('rW','rW','',$val['rw'],'RW');	
+		echo "	</div>
+			</div>
+			<div class='form-group'>
+				<label class='control-label col-sm-4'>PERIKSA DATA !</label>
+				<div class='col-sm-8'>
+					<input type='submit' class = 'btn btn-success' value='Simpan'>
+				</div>
+			</div>
+			
+		</form>
+		";
+		
+	}
+	#kkx
 		
 	function textbox($id,$nm,$onEvent,$tbv="",$ph="")
 	{
@@ -238,7 +306,6 @@ class formulir
 		
 		return $shk;
 	}
-	
 	
 }
 ?>

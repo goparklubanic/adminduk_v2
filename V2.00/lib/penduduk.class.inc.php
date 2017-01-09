@@ -57,7 +57,7 @@ class penduduk
 		tg_lahir = ? , st_kawin = ? , kd = ? , agama = ? , gol_darah = ? ,
 		pendidikan = ? , pekerjaan = ? , nik_ayah = ? , nik_ibu = ? ,
 		no_akte_lahir = ? , dusun = ? , rw = ? , rt = ? , no_kk = ? ,
-		haji = ? , rtm  = ?
+		haji = ? , rtm  = ? , mutasi = ? , tglmutasi = ?
 		";
 		
 		$qry = $this->setQuery($sql); $qry->execute($dapen);

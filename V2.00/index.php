@@ -58,16 +58,17 @@ if(!isset($_SESSION['user'])){header("Location:./login/");}
         <li class="active"><a href="./">BERANDA</a></li>
         <li><a href="./?menu=capen">PENCARIAN</a></li>
         <li><a href="./?menu=kk">KEPALA KELUARGA</a></li> 
-        <li><a href="./?menu=form">PENDUDUK BARU</a></li> 
         
         <li class="dropdown">
 			<a class="dropdown-toggle" data-toggle="dropdown" href="#">MUTASI
 				<span class="caret"></span>
 			</a>
 			<ul class="dropdown-menu">
-			<li><a href="./?menu=surat&sk=wafat">Meninggal</a></li>
-			<li><a href="./?menu=surat&sk=pindah">Warga Pindah</a></li>
-			<li><a href="./?menu=form">Warga Datang</a></li> 
+				<li><a href="./?menu=form">Penduduk Baru</a></li>
+				<li><a href="./?menu=kkbaru">KK Baru</a></li>
+				<li><a href="./?menu=surat&sk=wafat">Meninggal</a></li>
+				<li><a href="./?menu=surat&sk=pindah">Warga Pindah</a></li>
+				<li><a href="./?menu=form">Warga Datang</a></li>
     </ul>
   </li>
         
@@ -75,6 +76,7 @@ if(!isset($_SESSION['user'])){header("Location:./login/");}
         <li><a href="./?menu=statistik">STATISTIK</a></li>  
         <li><a href="./?menu=daftpilih">DAFTAR PEMILIH</a></li>
         <li><a href="./?menu=ekswarga">PERNAH JADI WARGA</a></li>
+		<li><a href="./?menu=nikextnl">NIK EKSTERNAL</a></li>
       </ul>
       <ul class="nav navbar-pills .nav-stacked">
         <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign In</a></li>
@@ -97,6 +99,7 @@ if(!isset($_SESSION['user'])){header("Location:./login/");}
 				
 				case 'capen'     : include "capen.php"; 	break;
 				case 'form'      : $frm->kk("penduduk.act.php?inp"); 	break;
+				case 'nikextnl'  : $frm->kkx("penduduk.act.php?inpx"); 	break;
 				case 'statistik' : include "statistik.php";	break;
 				case 'umur'      : include "pokumur.php";	break;
 				case 'urai'      : include "detilduk.php";	break;
@@ -109,7 +112,7 @@ if(!isset($_SESSION['user'])){header("Location:./login/");}
 				case 'laporan'   : include "laporan.php"; break;
 				case 'stagen'    : include "stagenda.php"; break;
 				case 'ekswarga'  : include "ekswarga.php"; break;
-				
+				case 'kkbaru'    : include "kk_anyar.php"; break;
 			}
 		}
 		?>

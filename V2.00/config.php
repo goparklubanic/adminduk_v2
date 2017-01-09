@@ -8,4 +8,5 @@ define ("telpon","+62 86-592699");
 define ("dewil","3304061008");
 define ("kepala","Kepala Desane");
 define ("kopkelur","Kel. Smpr");
+define ("uploadir","/tmp");
 ?>

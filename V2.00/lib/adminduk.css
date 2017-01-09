@@ -14,7 +14,11 @@
 #knock img{ width: 50px; border-radius:20px;}
 #cacahDokumen{margin-top:100ppx; padding: 5px; background: #E0E0E0;}
 #ketru{margin-top: 15px; margin-bottom: 20px; padding: 2px; background: #E0E0E0;}
-
+#fukk{border:0px solid navy; min-height: 60px; padding: 1px 10px 20px 0; background: #C7E5FF;}
+#aprSbt{display:none;}
+#frmApartur{display:none;}
+#frmAprEdit{display:none;}
+#frmCredens{display:none;}
 /* CLASSes */
 .footer{position:absolute; bottom: 10px; width: 100%; text-align: center; border:0px solid navy;}
 .noa {text-align:center; width:50px; border:none;}

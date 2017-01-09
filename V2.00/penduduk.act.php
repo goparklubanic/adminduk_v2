@@ -16,7 +16,18 @@ if(isset($_GET['inp']))
 			$_POST['pendidikan'],$_POST['pekerjaan'],$_POST['nik_ayah'],
 			$_POST['nik_ibu'],$_POST['no_akte_lahir'],$_POST['dusun'],
 			$_POST['rW'],$_POST['rt'],$_POST['no_kk'],$_POST['haji'],
-			$_POST['rtm']);
+			$_POST['rtm'],'datang',date('Y-m-d'));
+			
+	$pdd->wargaBaru($dapen);
+	
+}
+
+if(isset($_GET['inpx']))
+{
+	$dapen = array ($_POST['nik'],$_POST['nama_lengkap'],'',
+			'',$_POST['tp_lahir'],$_POST['tg_lahir'],'','','','','',
+			$_POST['pekerjaan'],'','','',$_POST['dusun'],$_POST['rW'],
+			$_POST['rt'],'',0,0,'external',date('Y-m-d'));
 			
 	$pdd->wargaBaru($dapen);
 	
