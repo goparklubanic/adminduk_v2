@@ -16,19 +16,19 @@ class aparatur
 	function nambah($data){
 		$sql = "INSERT INTO apartur 
 				SET	nip = ? , nama = ? , username = ? , password = ?
-				, jabatan = ?";
+				, jabatan = ?, paraf = ?";
 		$qry = $this->setQuery($sql);
 		$qry->execute(array($data['nip'],$data['nma'],$data['usr'],
-			  md5($data['usr']."_".$data['pwd']), $data['jbt']));
+			  md5($data['usr']."_".$data['pwd']), $data['jbt'],$data['paraf']));
 		$qry=null;
 	}
 	
 	function ngubah($data){
 		$sql = "UPDATE apartur 
-				SET	nip = ? , nama = ? , jabatan = ?
+				SET	nip = ? , nama = ? , jabatan = ? , paraf = ?
 				WHERE id = ?";
 		$qry = $this->setQuery($sql);
-		$qry->execute(array($data['nip'],$data['nma'], $data['jbt'],$data['id']));
+		$qry->execute(array($data['nip'],$data['nma'], $data['jbt'],$data['paraf'], $data['id']));
 		$qry=null;
 	}
 	
@@ -51,7 +51,9 @@ class aparatur
 	}
 	
 	function nongol(){
-		$sql = "SELECT * FROM apartur LIMIT 20";
+		$sql = "SELECT * FROM apartur 
+				WHERE nip !='000000000000000' || nama !='Administrator'
+				LIMIT 20";
 		$qry = $this->setQuery($sql);
 		$qry->execute();
 		while($rs = $qry->fetch()){
@@ -81,7 +83,7 @@ class aparatur
 	
 	function pemaraf()
 	{
-		$sql = "SELECT nama,jabatan FROM apartur LIMIT 20";
+		$sql = "SELECT nama,jabatan FROM apartur WHERE paraf='1' LIMIT 20";
 		$qry = $this->setQuery($sql);
 		$qry->execute();
 		$prf = array();
@@ -91,6 +93,21 @@ class aparatur
 			array_push($prf,$pemaraf);
 		}
 		return $prf;
+	}
+	
+	function aparalogin($u,$p)
+	{
+		$key = md5($u.'_'.$p);
+		//echo "$u $p $key";
+		$sql = "SELECT nip,nama,jabatan FROM apartur where password = ? LIMIT 1";
+		$qry = $this->setQuery($sql);
+		$qry->execute(array($key));
+		$rs = $qry->fetch();
+		if($rs == null){
+			return array(0,0,0,0);
+		}else{
+			return array(1,$rs['nip'],$rs['nama'],$rs['jabatan']);
+		}
 	}
 }
 ?>

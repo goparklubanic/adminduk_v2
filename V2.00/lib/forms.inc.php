@@ -77,11 +77,11 @@ class formulir
 			
 			<div class='form-group'>
 				<label class='control-label col-sm-4'>AGAMA</label>
-				<div class='col-sm-6'>&nbsp;&nbsp;";
-				$agm = "islam|ISLAM|checked:buddha|BUDDHA|:hindu|HINDU|:katholik|KATHOLIK|:konghucu|KONG HU CHU|:kristen|KRISTEN|:
-						lainnya|Lainnya|";
+				<div class='col-sm-6'>";
+				$agm = $this->optData('agama','selected');
+				$this->select('agama',$agm);
 				//echo $shk;
-				$this->radiobox("agama",$agm);
+				//$this->radiobox("agama",$agm);
 		echo "	</div>
 				<div class='col-sm-2'>".$val['agama']."</div>
 			</div>
@@ -98,7 +98,7 @@ class formulir
 			<div class='form-group'>
 				<label class='control-label col-sm-4'>PENDIDIKAN TERAKHIR</label>
 				<div class='col-sm-6'>";
-				$pdd = $this->optData('pendidikan','selected');
+				$pdd = $this->optData('pdd','selected');
 				$this->select('pendidikan',$pdd);
 		echo "	</div>
 				<div class='col-sm-2'>".$val['pendidikan']."</div>
@@ -107,7 +107,7 @@ class formulir
 			<div class='form-group'>
 				<label class='control-label col-sm-4'>PEKERJAAN</label>
 				<div class='col-sm-6'>";
-				$pkj = $this->optData('pekerjaan','selected');
+				$pkj = $this->optData('pkj','selected');
 				$this->select('pekerjaan',$pkj);
 		echo "	</div>
 				<div class='col-sm-2'>".$val['pekerjaan']."</div>
@@ -293,8 +293,9 @@ class formulir
 	function optData($field,$ctrl)
 	{
 		$con = $this->koneksi();
-		$qry = $con->prepare("select distinct($field) as shk from penduduk where $field !='' order by $field;");
-		$qry->execute();
+		//$qry = $con->prepare("select distinct($field) as shk from penduduk where $field !='' order by $field;");
+		$qry = $con->prepare("select optData as shk from pildata where optGroup = ? order by optData");
+		$qry->execute(array($field));
 		$shk="";
 		$dlm=0;
 		while($rs = $qry->fetch())

@@ -23,6 +23,7 @@ class penduduk
 	
 	function capen($fil,$rt,$rw,$kew,$op=0,$m)
 	{
+		//echo "$fil , $rt, $rw, $kew , $op , $m";
 		if($op=='1'){ $op ='='; }else{ $op ='LIKE'; }
 		$mu=($m-1) * 25;
 		$qry = $this->setQuery("SELECT nik,nama_lengkap,kelamin,rt,rw,
@@ -305,6 +306,18 @@ class penduduk
 			<span id='pagno'>".$m."</span>
 			<a href='#top' class='btn btn-info' onClick=nxpage()> => </a>
 			";
+		}
+	}
+	
+	function slcRtRw()
+	{
+		$qry=$this->setQuery("SELECT DISTINCT(CONCAT(rt,'|',rw)) rtrw, rt, rw 
+			FROM penduduk ORDER BY rw,rt");
+		$qry->execute();
+		while($rs = $qry->fetch())
+		{
+			if($rs['rt']==null || $rs['rw']==null){continue;}
+			echo "<option value='".$rs['rtrw']."'>RT. ".sprintf("%02d",$rs['rt'])." RW. ".sprintf("%02d",$rs['rw'])."</option>";
 		}
 	}
 }

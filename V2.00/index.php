@@ -68,10 +68,19 @@ if(!isset($_SESSION['user'])){header("Location:./login/");}
 				<li><a href="./?menu=kkbaru">KK Baru</a></li>
 				<li><a href="./?menu=surat&sk=wafat">Meninggal</a></li>
 				<li><a href="./?menu=surat&sk=pindah">Warga Pindah</a></li>
-				<li><a href="./?menu=form">Warga Datang</a></li>
-    </ul>
-  </li>
-        
+			</ul>
+		</li>
+        <li class="dropdown">
+			<a class="dropdown-toggle" data-toggle="dropdown" href="#">LAPORAN RT
+				<span class="caret"></span>
+			</a>
+			<ul class="dropdown-menu">
+				<li><a href="./?menu=laporan&id=0&tp=pengantar">Pengantar</a></li>
+				<li><a href="./?menu=laporan&id=0&tp=kematian">Kematian</a></li>
+				<li><a href="./?menu=laporan&id=0&tp=kelahiran">Kelahiran</a></li>
+				<li><a href="./?menu=laporan&id=0&tp=kepindahan">Mohon Pindah</a></li>
+			</ul>
+		</li>
         
         <li><a href="./?menu=statistik">STATISTIK</a></li>  
         <li><a href="./?menu=daftpilih">DAFTAR PEMILIH</a></li>
@@ -79,7 +88,7 @@ if(!isset($_SESSION['user'])){header("Location:./login/");}
 		<li><a href="./?menu=nikextnl">NIK EKSTERNAL</a></li>
       </ul>
       <ul class="nav navbar-pills .nav-stacked">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign In</a></li>
+        <!--li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign In</a></li-->
         <li><a href="./login/"><span class="glyphicon glyphicon-log-in"></span> Log Out</a></li>
       </ul>
     </div>
@@ -113,6 +122,7 @@ if(!isset($_SESSION['user'])){header("Location:./login/");}
 				case 'stagen'    : include "stagenda.php"; break;
 				case 'ekswarga'  : include "ekswarga.php"; break;
 				case 'kkbaru'    : include "kk_anyar.php"; break;
+				case 'pengantar' : include "pengantar.php"; break;
 			}
 		}
 		?>

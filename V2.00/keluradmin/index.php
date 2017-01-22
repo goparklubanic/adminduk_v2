@@ -1,4 +1,6 @@
 <?php
+	session_start();
+	if(!isset($_SESSION['user']) || $_SESSION['user'] != 'Administrator'){header("Location:../login/");} 
 	date_default_timezone_set('Asia/Jakarta');
 	require_once '../config.php'; 
 	require_once '../lib/aparatur.class.inc.php';
@@ -23,7 +25,10 @@
 	  <div class="row">
 	  <table class="table table-sm" id="tblAparatur">
 		  <tr>
-			  <th colspan="5"><a href=javascript:void(0) onClick=addApar() class="btn btn-success">Tambah Aparatur</a></th>
+			  <th colspan="5">
+				  <a href=javascript:void(0) onClick=addApar() class="btn btn-success">Tambah Aparatur</a>
+				  <a href="../login" class="btn btn-danger">Keluar</a>
+			  </th>
 		  </tr>
 		  <tr>
 			  <th>NIP</th>
@@ -36,6 +41,8 @@
 	  </table>
 	  </div>
 	  <div id="frmApartur" class="row">
+		  <br/>
+	  <h2>Formulir Penambahan Pengguna</h2>
 	  <form class="form-horizontal" action="act.aparatur.php?mod=add" method="POST">
 		  <div class="form-group">
 			  <label class="col-sm-3">NIP</label>
@@ -80,6 +87,14 @@
 		  </div>
 		  
 		  <div class="form-group">
+			  <label class="col-sm-3">Penandatangan Surat</label>
+			  <div class="radio col-sm-9">
+				  <label class='radio-inline'><input type="radio" name="paraf" value='0' checked>Bukan</label>
+				  <label class='radio-inline'><input type="radio" name="paraf" value='1' >Ya</label>
+			  </div>
+		  </div>
+		  
+		  <div class="form-group">
 			  <label class="col-sm-3">PERIKSA DATA !</label>
 			  <div class="col-sm-9">
 				  <label><input type="checkbox" name="cek1" onChange=showAprSbt()> Data telah diperiksa </label>
@@ -92,6 +107,8 @@
 	  </form>
 	  </div>
 	  <div id="frmAprEdit" class="row">
+		  <br/>
+	  <h2>Formulir Perubahan Pengguna</h2>
 	  <form class="form-horizontal" action="act.aparatur.php?mod=edt" method="POST">
 		   <div class="form-group">
 			  <label class="col-sm-3">UID</label>
@@ -120,12 +137,24 @@
 				  <input type="text" name="jbt" id='ejbt' class='form-control'>
 			  </div>
 		  </div>
+		  
+		  <div class="form-group">
+			  <label class="col-sm-3 radio">Penandatangan Surat</label>
+			  <div class="col-sm-9">
+				  <label class='radio-inline'><input type="radio" name="paraf" value='0' checked>Bukan</label>
+				  <label class='radio-inline'><input type="radio" name="paraf" value='1' >Ya</label>
+			  </div>
+		  </div>
+		  
 		  <div style="text-align:right; padding-right:20px">
 			  <input type="submit" class="btn btn-primary" value="Simpan">
 		  </div>
 	  </form>
 	  </div>
 	  <div id="frmCredens" class="row">
+		  <br/>
+	  <h2>Formulir Perubahan Login</h2>
+		  
 		 <form class="form-horizontal" action="act.aparatur.php?mod=crd" method="POST">
 		   <div class="form-group">
 			  <label class="col-sm-3">UID</label>
@@ -150,9 +179,10 @@
 		  <div class="form-group">
 			  <label class="col-sm-3">ULANGI SANDI</label>
 			  <div class="col-sm-9">
-				  <input type="password" name="pwd2" id='cpw2' onBlur=checkPass() class='form-control'>
+				  <input type="password" name="pwd2" id='cpw2' onBlur=checkPass2() class='form-control'>
 			  </div>
 		  </div>
+		  
 		  <div style="text-align:right; padding-right:20px">
 			  <input type="submit" class="btn btn-primary" value="Simpan">
 		  </div>
@@ -171,6 +201,19 @@
 				  $("input[name='pwd']").focus();
 			  }
 		  }
+		  
+		  function checkPass2()
+		  {
+			  var p1 = $("#cpw1").val();
+			  var p2 = $("#cpw2").val();
+			  if(p1 != p2){ 
+				  alert('Sandi Tidak Sama'); 
+				  $("input[name='pwd']").val('');
+				  $("input[name='pwd2']").val('');
+				  $("input[name='pwd']").focus();
+			  }
+		  }
+		  
 		  function showAprSbt()
 		  {
 			  if( $('#cek1').attr('checked',true) ){

@@ -467,7 +467,7 @@ $ush = <<<EOUsh
 $kop
 	<div class="pokoksurat">
 	<span class='ps1'>SURAT KETERANGAN USAHA</span><br />
-	<span class='ps2'>Nomor: $data[0]/$data[1]</span>
+	<span class='ps2'>Nomor: $data[0]/$data[1]/$ad[ns]</span>
 	</div>
 	
 	<div class="badansurat12">
@@ -626,7 +626,7 @@ $kop
 	<table width='100%'>
 	<tr>
 		<th width='33%'>Yang Bersangkutan</th>
-		<th width='33%'>Camat Banjarnegara</th>
+		<th width='33%'>Camat $ad[kc]</th>
 		<th width='33%'>$ad[nm], $data[2]<br />$jbt</th>
 	</tr>
 	<tr>

@@ -1,0 +1,7 @@
+-- perubahan kode
+2017-01-20 
+13:17:00: edit lib/template-surat.php		fix paraf kecamatan
+13:21:38: edit lib/aparatur.class.inc.php	add filter function pemaraf
+2017-01-22
+15:17:35: edit lib/template-surat.php		fix nomor surat ket. usaha
+15:28:01: edit config.php					fix alalamat n telp

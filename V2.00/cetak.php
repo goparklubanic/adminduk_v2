@@ -18,6 +18,7 @@ $alamat = alamat;
 $telpon = telpon;
 $dewil = dewil;
 $kepala = kepala;
+$kdpos = kodepos;
 $ukab=strtoupper(kabupaten);
 $ukec=strtoupper(kecamatan);
 $udkl=strtoupper(dskl);
@@ -38,7 +39,8 @@ $n=$_GET['id'];
 			<div id='kop1'>PEMERINTAH KABUPATEN $ukab</div>
 			<div id='kop2'>KECAMATAN $ukec</div>
 			<div id='kop3'>$udkl $udes</div>
-			<div id='kop4'>$alamat</div>    
+			<div id='kop4'>$alamat Telp. $telpon</div>    
+			<div id='kop4'SMS Center 081228124447 $kecamatan - $kdpos</div>    
 	    </td>
 	  </tr>
 	</table>
@@ -54,7 +56,8 @@ $n=$_GET['id'];
 			<div id='kop1-a5'>PEMERINTAH KABUPATEN $ukab</div>
 			<div id='kop2-a5'>KECAMATAN $ukec</div>
 			<div id='kop3-a5'>$udkl $udes</div>
-			<div id='kop4-a5'>$alamat</div>    
+			<div id='kop4'>$alamat Telp. $telpon</div>
+			<div id='kop4'SMS Center 081228124447 $kecamatan - $kdpos</div>
 	    </td>
 	  </tr>
 	</table>

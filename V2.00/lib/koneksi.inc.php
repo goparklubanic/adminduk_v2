@@ -17,10 +17,19 @@ catch(PDOException $pe)
 die('Maaf, gangguan koneksi: ' .$pe->getMessage());
 }
 */
+
 $dbhost="localhost";
-$dbname="singamerta";
-$dbuser="zinga";
-$dbpass="merta";
+//singamerta
+//$dbname="singamerta";
+//$dbuser="zinga";
+//$dbpass="merta";
+//singamerta
+//rejasa
+$dbname="adminduk_3304082012";
+$dbuser="adminduk_rejasa";
+$dbpass="rejasa_3304082012";
+//rejasa
+
 
 try
 { 

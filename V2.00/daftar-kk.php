@@ -11,20 +11,7 @@ if(!isset($_GET['id']))
 		<div class="col-sm-8">
 			<select class="form-control" id="rtrw" onChange=kklist(this.value)>
 				<option value="" selected>Pilih RT / RW</option>
-				<option value="01|01">RT 01 RW 01</option>
-				<option value="02|01">RT 02 RW 01</option>
-				<option value="03|01">RT 03 RW 01</option>
-				<option value="04|01">RT 04 RW 01</option>
-				
-				<option value="01|02">RT 01 RW 02</option>
-				<option value="02|02">RT 02 RW 02</option>
-				<option value="03|02">RT 03 RW 02</option>
-				<option value="04|02">RT 04 RW 02</option>
-				
-				<option value="01|03">RT 01 RW 03</option>
-				<option value="02|03">RT 02 RW 03</option>
-				<option value="03|03">RT 03 RW 03</option>
-				<option value="04|03">RT 04 RW 03</option>
+				<?php $pdd->slcRtRw(); ?>
 			</select>
 		</div>
 	</div>

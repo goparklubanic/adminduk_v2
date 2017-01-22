@@ -26,12 +26,12 @@ error_reporting(0);
 		<form role="form" id="lgform" action="barlogin.php" method="POST">
 			<div class="form-group">
 				<label class="loginlabel">ID PENGGUNA</label>
-				<input class="form-control" name="katuid" value="semampir">
+				<input class="form-control" name="katuid" value="luradmin">
 			</div>
 			
 			<div class="form-group">
 				<label class="loginlabel">KATA SANDI</label>
-				<input type="password" class="form-control" name="katpwd" value="Ban74rnegaR@">
+				<input type="password" class="form-control" name="katpwd" value="merdeka_1945">
 			</div>
 			
 			<div class="form-group">

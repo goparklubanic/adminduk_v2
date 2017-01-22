@@ -19,18 +19,7 @@
 		<div class="col-sm-8">
 			<select id="rtrw" class="form-control">
 				<option value="">Semua Wilayah RT dan RW</option>
-				<option value="1|1">RT 01 / RW 01</option>
-				<option value="2|1">RT 02 / RW 01</option>
-				<option value="3|1">RT 03 / RW 01</option>
-				<option value="4|1">RT 04 / RW 01</option>
-				<option value="1|2">RT 01 / RW 02</option>
-				<option value="2|2">RT 02 / RW 02</option>
-				<option value="3|2">RT 03 / RW 02</option>
-				<option value="4|2">RT 04 / RW 02</option>
-				<option value="1|3">RT 01 / RW 03</option>
-				<option value="2|3">RT 02 / RW 03</option>
-				<option value="3|3">RT 03 / RW 03</option>
-				<option value="4|3">RT 04 / RW 03</option>
+				<?php $pdd->slcRtRw(); ?>
 			</select>
 		</div>
 	</div>

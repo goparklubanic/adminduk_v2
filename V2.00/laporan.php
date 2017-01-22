@@ -1,20 +1,34 @@
 <?php
+
 require_once "./lib/laporan.class.inc.php";
 $lpr=new laporan();
-
 $id = $_GET['id'];
-$lap = $lpr->laporanPick($id);
-//$dtl = json_decode($lap['dataLap']) ;
-//echo $lap['dataLap'];
-$test1 = explode(",",$lap['dataLap']);
-//echo "<pre>";
-//print_r($test1);
-//echo "<br/>";
-$dalap=json_decode($lap['dataLap'],1);
-//print_r($dalap);
-//echo "</pre>";
-if($lap['jenisLap']=="kelahiran")
-{
+
+if($id==0){
+	if($_GET['tp']=="pengantar"){
+		
+		$lpr->pengantarList();
+		
+	}else{
+		
+		$lpr->laporanList($_GET['tp']);
+		
+	}
+}else{
+	//else statement
+	
+	$lap = $lpr->laporanPick($id);
+	//$dtl = json_decode($lap['dataLap']) ;
+	//echo $lap['dataLap'];
+	$test1 = explode(",",$lap['dataLap']);
+	//echo "<pre>";
+	//print_r($test1);
+	//echo "<br/>";
+	$dalap=json_decode($lap['dataLap'],1);
+	//print_r($dalap);
+	//echo "</pre>";
+	if($lap['jenisLap']=="kelahiran")
+	{
 
     echo '
     <table class="table table-sm">
@@ -93,9 +107,9 @@ if($lap['jenisLap']=="kelahiran")
 	<input type="submit" class="btn btn-default" value="PROSES">
 	</form>
 	';
-}
-if($lap['jenisLap']=="kematian")
-{
+	}
+	if($lap['jenisLap']=="kematian")
+	{
     echo '
     <table class="table table-sm">
     <tr><td width="200">NIK Jenazah</td><td width="5">:</td><td>'.$dalap['nik'].'</td></tr>
@@ -173,9 +187,9 @@ if($lap['jenisLap']=="kematian")
 	<input type="submit" class="btn btn-default" value="PROSES">
 	</form>
 	';
-}
-if($lap['jenisLap']=="kepindahan")
-{
+	}
+	if($lap['jenisLap']=="kepindahan")
+	{
     echo '
     <table class="table table-sm">
       <tr><td width="200">Nomor KK</td><td width="5">:</td><td>'.$dalap['nomorKK'].'</td></tr>
@@ -211,5 +225,9 @@ if($lap['jenisLap']=="kepindahan")
 	<input type="submit" class="btn btn-default" value="PROSES">
 	</form>
 	';
+	}
+
+
+	//else statement
 }
 ?>

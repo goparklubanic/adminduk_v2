@@ -163,7 +163,7 @@ class suratdesa
 				echo "
 				<tr>
 				  <td>
-				    <a href='cetak.php?s=".$rs['sktab']."&id=".$rs['nomor']."'>".$rs['nomor']."</a></td>
+				    <a href='cetak.php?s=".$rs['sktab']."&id=".$rs['nomor']."'>".sprintf("%04d",$rs['nomor'])."</a></td>
 				  <td>".$rs['tanggal']."</td>
 				  <td>".$rs['nama_pemaraf']."</td>
 				  <td>".$rs['nama_lengkap'].", [ ".$rs['rt']." / ".$rs['rw']."]</td>

@@ -5,7 +5,7 @@ if($_GET['mod'] == 'add')
 {
 	$data = array('nip'=>$_POST['nip'],'nma'=>$_POST['nma'],
 			'jbt'=>$_POST['jbt'],'usr'=>$_POST['usr'],
-			'pwd'=>$_POST['pwd']);
+			'pwd'=>$_POST['pwd'],'paraf'=>$_POST['paraf']);
 			
 	$apr->nambah($data);
 	echo "
@@ -18,7 +18,8 @@ if($_GET['mod'] == 'add')
 if($_GET['mod'] == 'edt')
 {
 	$data = array('nip'=>$_POST['nip'],'nma'=>$_POST['nma'],
-			'jbt'=>$_POST['jbt'],'id'=>$_POST['uid']);
+			'jbt'=>$_POST['jbt'],'paraf'=>$_POST['paraf'],
+			'id'=>$_POST['uid']);
 	$apr->ngubah($data);
 	
 	echo "
