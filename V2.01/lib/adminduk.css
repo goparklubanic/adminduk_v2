@@ -1,0 +1,55 @@
+/* IDs */
+#ph {text-align:center;}
+#ph h2,h3,h4{padding:0; margin:4px;}
+#maincon {display: block; min-height: 300px;}
+#adminduk{display: none;}
+#dpil table tr:nth-child(odd) {background:#BBB;}
+#loginWrapper{
+	position:absolute; width:300px; height:300px; top:50%; left:50%;
+	margin-left: -150px; margin-top:-150px;
+	border: 1px solid #154E0E; padding: 15px; border-radius: 15px;
+	box-shadow: 0px 0px 15px #041D00;
+}
+#knock {text-align:center; margin:5px 0 15px 0; }
+#knock img{ width: 50px; border-radius:20px;}
+#cacahDokumen{margin-top:100ppx; padding: 5px; background: #E0E0E0;}
+#ketru{margin-top: 15px; margin-bottom: 20px; padding: 2px; background: #E0E0E0;}
+#fukk{border:0px solid navy; min-height: 60px; padding: 1px 10px 20px 0; background: #C7E5FF;}
+#aprSbt{display:none;}
+#frmApartur{display:none;}
+#frmAprEdit{display:none;}
+#frmCredens{display:none;}
+#navcetak{width: 200px; height: 160px; position:absolute; 
+	  top: 50%; left: 50%; margin-left: -100px; margin-top: -80px; 
+	  background: #EDEDED; padding: 40px 20px 20px 20px;}
+#navcetak a{display: block; width: 100%; background:#000056; color: #C8C3C3; 
+	 padding: 5px; margin-top:; 5px; margin-bottom:5px;}
+
+/* CLASSes */
+.footer{position:absolute; bottom: 10px; width: 100%; text-align: center; border:0px solid navy;}
+.noa {text-align:center; width:50px; border:none;}
+.ciut{display:none;}
+.ru{border-radius: 5px; padding: 5px; margin-right: 10px;}
+/* TAGs */
+li {background:#C7E5FF;} 
+li.active {background:#428BCA;}
+li.active a { color: #EEE;}
+li.active a:hover { background:#428BCA; }
+
+@media screen and (max-width: 720px){
+  #ph h2 {font-size: 12pt;}
+  #ph h3 {font-size: 12pt;}
+  #ph h4 {font-size: 11pt; font-weight: bold;}
+  #adminduk{display: block;}
+  #dpil table tr th {display:block; padding:0; font-size:10pt;}
+  #dpil table tr td {display:block; padding:0; font-size:10pt;}
+  
+  #dpil table tr th.ngumpet{display:none;} 
+  #dpil table tr td.ngumpet{display:none;}
+  
+  #kk thead tr th.umpet {display:none;}
+  #kk tbody tr td.umpet {display:none;}
+  #kk tbody tr:nth-child(odd){background: #E0E0E0;}
+  .ciut{display:block;}
+  .slempit {display:none;}
+}

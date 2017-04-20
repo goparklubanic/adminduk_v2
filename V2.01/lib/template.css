@@ -1,0 +1,57 @@
+#kop1{text-align:center; font-family: arial, helvetica; font-size: 18pt; }
+#kop2{text-align:center; font-family: arial, helvetica; font-size: 16pt; }
+#kop3{text-align:center; font-family: arial, helvetica; font-size: 14pt; font-weight:bold;}
+#kop4{text-align:center; font-family: arial, helvetica; font-size: 10pt; }
+
+#kop1-a5{text-align:center; font-family: arial, helvetica; font-size: 12pt; }
+#kop2-a5{text-align:center; font-family: arial, helvetica; font-size: 12pt; }
+#kop3-a5{text-align:center; font-family: arial, helvetica; font-size: 11pt; font-weight:bold;}
+#kop4-a5{text-align:center; font-family: arial, helvetica; font-size: 10pt; }
+#tupin{padding-left:15px;}
+.pokoksurat {font-family: arial, helvetica; font-size: 11pt; 
+	margin-bottom: 3px; text-align:center;}
+.pokoksurat-a5 {font-family: arial, helvetica; font-size: 10pt; 
+	margin-bottom: 3px; text-align:center;}
+.ps1{font-weight:bold;}
+.tbl-kop{margin-bottom: 10px;} .tbl-kop tr td {padding: 0px;}
+
+td.kiri{width:250px; margin:15px 0 15px 0;}
+.badansurat table tr td {font-family:monospace; font-size:10pt;}
+.badansurat-a5 p {font-family: monospace; font-size:10pt; }
+.table-a5 tr td {font-family:monospace; font-size:10pt;}
+.badansurat12 {font-family:monospace; font-size:12pt;}
+.badansurat12 p {margin:15px 0 15px 0;}
+.tr-judul td{padding-top: 5px;}
+.paraf{font-size:12pt;}
+.paraf-a5{font-size:10pt; width:100%;}.paraf-a5 table tr td{font-size:10pt;}
+
+@media print{
+#kop1{text-align:center; font-family: arial, helvetica; font-size: 18pt; }
+#kop2{text-align:center; font-family: arial, helvetica; font-size: 16pt; }
+#kop3{text-align:center; font-family: arial, helvetica; font-size: 14pt; font-weight:bold;}
+#kop4{text-align:center; font-family: arial, helvetica; font-size: 10pt; }
+
+#kop1-a5{text-align:center; font-family: arial, helvetica; font-size: 12pt; }
+#kop2-a5{text-align:center; font-family: arial, helvetica; font-size: 12pt; }
+#kop3-a5{text-align:center; font-family: arial, helvetica; font-size: 11pt; font-weight:bold;}
+#kop4-a5{text-align:center; font-family: arial, helvetica; font-size: 10pt; }
+#tupin{padding-left:15px;}
+.pokoksurat {font-family: arial, helvetica; font-size: 11pt; 
+	margin-bottom: 3px; text-align:center;}
+.pokoksurat-a5 {font-family: arial, helvetica; font-size: 10pt; 
+	margin-bottom: 3px; text-align:center;}
+.ps1{font-weight:bold;}
+.tbl-kop{margin-bottom: 10px;} .tbl-kop tr td {padding: 0px;}
+
+td.kiri{width:250px; margin:15px 0 15px 0;}
+.badansurat table tr td {font-family:monospace; font-size:10pt;}
+.badansurat-a5 p {font-family: monospace; font-size:10pt; }
+.table-a5 tr td {font-family:monospace; font-size:10pt;}
+.badansurat12 {font-family:monospace; font-size:12pt;}
+.badansurat12 p {margin:15px 0 15px 0;}
+.tr-judul td{padding-top: 5px;}
+.paraf{font-size:12pt;}
+.paraf-a5{font-size:10pt; width:100%;}.paraf-a5 table tr td{font-size:10pt;}
+.noprint{display:none;}
+
+}
